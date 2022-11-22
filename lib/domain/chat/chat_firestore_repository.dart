@@ -15,4 +15,9 @@ class ChatFireStoreRepository {
     // documentReference 타입으로 반환 - 문서타입
     return await db.collection('chat').add(dto.toJson());
   }
+
+  Stream findAllStream() {
+    //db.collection('chat').orderBy("createdAt").snapshots()
+    return db.collection('chat').snapshots();
+  }
 }
