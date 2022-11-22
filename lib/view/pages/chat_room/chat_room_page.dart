@@ -5,6 +5,20 @@ class ChatRoomPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(),
+      body: _buildListView(),
+    );
+  }
+
+  ListView _buildListView() {
+    return ListView.separated(
+      itemCount: 2,
+      itemBuilder: (context, index) => ListTile(
+        title: Text("msg : 안녕"),
+        subtitle: Text("from : ssar"),
+      ),
+      separatorBuilder: (context, index) => Divider(),
+    );
   }
 }
