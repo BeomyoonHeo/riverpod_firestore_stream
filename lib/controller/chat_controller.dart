@@ -20,9 +20,9 @@ class ChatController {
 
     doc.then((value) {});
 
-    doc.onError((error, stackTrace) {
-      print("error: ${error}");
-    });
+    // doc.onError((error, stackTrace) {
+    //   print("error: ${error}");
+    // });
 
     void findAllStream() {}
   }
