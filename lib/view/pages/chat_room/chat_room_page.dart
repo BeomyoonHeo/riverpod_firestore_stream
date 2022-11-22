@@ -52,7 +52,13 @@ Widget _buildListView(WidgetRef ref) {
         );
       }
     },
-    error: (error, stackTrace) => CircularProgressIndicator(),
-    loading: () => CircularProgressIndicator(),
+    error: (error, stackTrace) {
+      print("디버그 :${error.toString()}");
+      return CircularProgressIndicator();
+    },
+    loading: () {
+      print("디버그 :로딩");
+      return CircularProgressIndicator();
+    },
   );
 }
