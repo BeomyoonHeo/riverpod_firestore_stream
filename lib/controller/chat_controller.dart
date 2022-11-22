@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_firestore_stream/domain/chat/chat_firestore_repository.dart';
 import 'package:riverpod_firestore_stream/dto/chat/chat_req_dto.dart';
 
-final chatController = Provider((ref) {
+final chatControllerProvider = Provider((ref) {
   return ChatController(ref);
 });
 
@@ -15,6 +15,9 @@ class ChatController {
   ChatController(this._ref);
 
   void insert(ChatInsertReqDto dto) async {
-    DocumentReference dr = await _ref.read(chatFireStoreRepository).insert(dto);
+    DocumentReference doc =
+        await _ref.read(chatFireStoreRepositoryProvider).insert(dto);
+    print("디버그 : ${doc.snapshots()}"); // 현재 document의 상태를 리턴해준다.
+    print("디버그 : ${doc.id}");
   }
 }
